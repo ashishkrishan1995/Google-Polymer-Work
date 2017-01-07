@@ -1,0 +1,132 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>mapscodelab</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  
+  
+  
+  <link rel="import" href="bower_components/google-map/google-map.html">
+  <link rel="import" href="bower_components/google-map/google-map-directions.html">
+
+
+  <link rel="import" href="bower_components/iron-icon/iron-icon.html">
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="bower_components/iron-icons/maps-icons.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/paper-item/paper-icon-item.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-card/paper-card.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+     
+      body{
+        height:100%;
+        margin:0;
+      }
+      
+       google-map{
+        height:400px;
+        width:100%;
+      }
+
+ paper-card{
+        position:absolute;
+        bottom:25px;
+        left:25px;
+      }
+      
+  </style>
+</head>
+
+<body unresolved>
+  
+    
+<template is="dom-bind">
+  
+  <google-map api-key="AIzaSyCL851Gyj58pb-GiRPJHM_PFWnL0py6oKM"
+  latitude="28.6975177"
+  longitude="77.1384332"
+  map="{{map}}">
+    
+   <google-map-marker latitude="28.619570"
+    longitude="77.088104" draggable="true"></google-map-marker>
+    
+  </google-map>
+  
+  <google-map-directions api-key="AIzaSyCL851Gyj58pb-GiRPJHM_PFWnL0py6oKM"
+  start-address="{{start}}"
+  end-address="{{end}}"
+  map="{{map}}"
+  travel-mode="{{travelMode}}">
+  </google-map-directions>
+  
+  <paper-card elevation="3">
+    <paper-icon-item>
+      
+      <iron-icon item-icon 
+      icon="search">
+      </iron-icon>
+      
+      <paper-input
+      label="Start Address"
+      value="{{start}}">
+      </paper-input>
+    
+    </paper-icon-item>
+    
+    <paper-icon-item>
+      
+      <iron-icon item-icon 
+      icon="search">
+      </iron-icon>
+      
+      <paper-input
+      label="End Address"
+      value="{{end}}">
+      </paper-input>
+    
+    </paper-icon-item>
+    
+    <paper-tabs selected="{{travelMode}}"
+    attr-for-selected="label">
+    <paper-tab  label="DRIVING">
+      <iron-icon icon="maps:directions-car"></iron-icon>
+      <span>Driving</span>
+    </paper-tab>
+    
+    <paper-tab label="WALKING">
+      <iron-icon icon="maps:directions-walk"></iron-icon>
+      <span>Walk</span>
+    </paper-tab>
+    
+    <paper-tab label="BICYCLING">
+      <iron-icon icon="maps:directions-bike"></iron-icon>
+      <span>Cycle</span>
+    </paper-tab>
+    
+    <paper-tab label="TRANSIT">
+      <iron-icon icon="maps:directions-transit"></iron-icon>
+      <span>Transit</span>
+    </paper-tab>
+    </paper-tabs>  
+  
+  </paper-card>
+
+</template>
+
+
+
+
+</body>
+</html>
+
